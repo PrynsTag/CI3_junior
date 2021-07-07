@@ -52,7 +52,7 @@
         title: 'Registered Successfully!',
         text: 'Redirecting to Login Page...',
         }).then(function() {
-        window.location = \"index.php\";
+        window.location = \"old_index.php\";
         }); 
         </script>";
     }
@@ -160,7 +160,7 @@
                         </div>
                         <div class="mt-4">
                             <div class="d-flex justify-content-end links">
-                                <a href="./index.php" class="signup">Back</a>
+                                <a href="old_index.php" class="signup">Back</a>
                             </div>
                         </div>
                     </form>

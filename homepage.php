@@ -2,7 +2,7 @@
     include('dbconnection.php');
 
     if (!isset($_SESSION['myid'])) {
-        header("Location: index.php");
+        header("Location: old_index.php");
     }
 
     $result2 = $conn->query("SELECT * FROM `users` WHERE id = '" . $_SESSION['myid'] . "'");

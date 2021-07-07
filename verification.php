@@ -2,7 +2,7 @@
 	include('dbconnection.php');
 
 	if (!isset($_SESSION['myid'])) {
-		header("Location: index.php");
+		header("Location: old_index.php");
 	}
 
 	$result2 = $conn->query("SELECT * FROM `users` WHERE id = '" . $_SESSION['myid'] . "'");
@@ -87,7 +87,7 @@
 						</div>
 						<div class="mt-4">
 							<div class="d-flex justify-content-end links">
-								<a href="./index.php" class="signup">Logout</a>
+								<a href="old_index.php" class="signup">Logout</a>
 							</div>
 						</div>
 					</form>
