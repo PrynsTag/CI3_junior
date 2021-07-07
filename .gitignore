@@ -84,4 +84,5 @@ fabric.properties
 
 # Usernames and Password
 /.config
+/.idea
 
