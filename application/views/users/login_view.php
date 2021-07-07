@@ -17,3 +17,5 @@
 </div>
 
 <?php echo form_close(); ?>
+
+<p>Don't have an account?&nbsp<a class="" href="<?= base_url() ?>register">Register </a></p>&nbsp
