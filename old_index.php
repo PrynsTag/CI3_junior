@@ -1,48 +1,51 @@
 <?php
-    include('dbconnection.php');
-    if (isset($_SESSION['myid'])) {
-        header("Location: homepage.php");
-    }
+include('dbconnection.php');
+if (isset($_SESSION['myid'])) {
+  header("Location: homepage.php");
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - juniors (A JARS Project)</title>
-    <!--Icon-->
-    <link rel="icon" href="./assets/images/JARS-ICON-rev.png" type="image/x-icon">
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <!--CSS & Font-->
-    <link rel="stylesheet" href="./assets/css/custom.css">
-    <!--Scripts-->
-    <script type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/df94d8b582.js" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - juniors (A JARS Project)</title>
+  <!--Icon-->
+  <link rel="icon" href="./assets/images/JARS-ICON-rev.png" type="image/x-icon">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <!--CSS & Font-->
+  <link rel="stylesheet" href="./assets/css/custom.css">
+  <!--Scripts-->
+  <script type="text/javascript" src="./assets/js/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/df94d8b582.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
-    <?php
-    if (isset($_POST['submitLogin'])) {
-        $user_name = mysqli_real_escape_string($conn, htmlspecialchars($_POST['username']));
-        $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
+<?php
+if (isset($_POST['submitLogin'])) {
+  $user_name = mysqli_real_escape_string($conn, htmlspecialchars($_POST['username']));
+  $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
 
-        $result = $conn->query("SELECT * FROM `users` WHERE `username` = '" . $user_name . "' AND `password` = '" . $password . "'");
-        $row = $result->num_rows;
+  $result = $conn->query("SELECT * FROM `users` WHERE `username` = '" . $user_name . "' AND `password` = '" . $password . "'");
+  $row = $result->num_rows;
 
-        if ($row == 1) {
-            $data = $result->fetch_assoc();
-            $_SESSION['myid'] = $data['id'];
-            session_regenerate_id();
-            header("Location: homepage.php");
-        } else {
-            echo
-            "<script> Swal.fire({
+  if ($row == 1) {
+    $data = $result->fetch_assoc();
+    $_SESSION['myid'] = $data['id'];
+    session_regenerate_id();
+    header("Location: homepage.php");
+  } else {
+    echo
+    "<script> Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'Your username or password may be incorrect!',
@@ -93,7 +96,7 @@
                 <!--Register Link-->
                 <div class="mt-4">
                     <div class="d-flex justify-content-center links">
-                        <span class="regprompt">Don't have an account? &nbsp;</span> <a href="./register.php" class="signup">Sign Up</a>
+                        <span class="regprompt">Don't have an account? &nbsp;</span> <a href="./register" class="signup">Sign Up</a>
                     </div>
                 </div>
             </div>
