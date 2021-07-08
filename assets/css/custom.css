@@ -16,10 +16,9 @@ Sub - font-family: 'Roboto', sans-serif;
 }
 
 .logo_card {
-  height: 450px;
+  height: 520px;
   width: 350px;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: auto 0;
   background: black;
   position: relative;
   display: flex;
@@ -791,3 +790,7 @@ a {
   color:grey;
 }
 
+/* register_view.php */
+small p {
+  margin-bottom: 0;
+}
