@@ -25,9 +25,9 @@ class Users extends CI_Controller
 
         // Check rules that are violated
         if ($this->form_validation->run() == false) {   // Run this code if rules are violated
-            $message = array(
+            $message = [
                 'error' => validation_errors()
-            );
+            ];
 
             // Show the error message from the user
             $this->session->set_flashdata($message);
