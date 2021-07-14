@@ -2,6 +2,7 @@
 <div class="container-fluid" id="cardContainer">
     <div class="headingContainer">
         <h1>Featured</h1>
+        <?php echo $this->uri->segment(1); ?>
     </div>
     <div class="bodyContainer">
         <div class="contentContainer">

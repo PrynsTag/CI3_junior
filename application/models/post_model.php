@@ -8,4 +8,13 @@ class Post_Model extends CI_Model
 
         return $result->result();
     }
+
+    public function my_collection($user_id)
+    {
+        $this->db->where($user_id);
+
+        $result = $this->db->get('post');
+
+        return $result->result();
+    }
 }

@@ -14,4 +14,31 @@ class Home extends CI_Controller
 
         $this->load->view('layouts/home', $data);
     }
+
+    public function collection()
+    {
+        $user_id = $this->session->userdata('user_id');
+
+        $get_posts = $this->post_model->my_collection($user_id);
+
+        $data = [
+            'header_title' => 'My Collection - Beta Juniors',
+            'main_view' => 'users/collection_view',
+            'posts' => $get_posts
+        ];
+
+        $this->load->view('layouts/home', $data);
+    }
+
+    public function settings()
+    {
+    }
+
+    public function about()
+    {
+    }
+
+    public function logout()
+    {
+    }
 }
