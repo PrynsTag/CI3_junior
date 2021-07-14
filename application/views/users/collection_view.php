@@ -8,7 +8,7 @@
         <div class="contentContainer">
             <ul class="nav justify-content-end collectionCard additemnavbar">
                 <li class="nav-item">
-                    <a class="nav-link" href="additem.php">Add Post</a>
+                    <a class="nav-link" href="<?= site_url("collection/add_collection") ?>">Add Post</a>
                 </li>
             </ul>
             <div class="row row-cols-1 row-cols-md-3 g-4 collectionCard">
@@ -17,7 +17,7 @@
                         <div class="col col-remove-margin">
                             <div class="card">
                                 <div class="boxImageContainer" style="background: url('<?= base_url() . $item->post_photo ?>') center no-repeat; background-size: 100% 100%;"></div>
-                                <div class="card-body colcard-body d-flex align-items-center">
+                                <div class="card-body col card-body d-flex align-items-center">
                                     <div>
                                         <div class="center-card">
                                             <h5 class="card-title"><?= $item->post_title ?></h5>
