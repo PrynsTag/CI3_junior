@@ -6,7 +6,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a href="homepage.php" id="#navbar-brand-container">
-                    <img src="assets/images/JARS-ICON.png" alt="logo" id="logo">
+                    <img src="<?= base_url() ?>assets/images/JARS-ICON.png" alt="logo" id="logo">
                     <a class="navbar-brand" href="homepage.php">juniors.</a>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,18 +14,18 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
+                        <li class="nav-item <?= $this->uri->segment(2) == null ? 'active' : '' ?>">
                             <!-- <p class="active-button">Home</p> -->
-                            <a class="active-button" href="<?= base_url(); ?>home/collection">Home</a>
+                            <a class="<?= $this->uri->segment(2) == null ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url(); ?>home/collection">My Collection</a>
+                        <li class="nav-item <?= $this->uri->segment(2) == 'collection' ? 'active' : '' ?>">
+                            <a class="<?= $this->uri->segment(2) == 'collection' ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home/collection">My Collection</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url(); ?>home/settings">Settings</a>
+                        <li class="nav-item <?= $this->uri->segment(2) == 'settings' ? 'active' : '' ?>">
+                            <a class="<?= $this->uri->segment(2) == 'settings' ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home/settings">Settings</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url(); ?>home/collection">About</a>
+                        <li class="nav-item <?= $this->uri->segment(2) == 'about' ? 'active' : '' ?>">
+                            <a class="<?= $this->uri->segment(2) == 'about' ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home/about">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= base_url() ?>home/logout">Log out</a>

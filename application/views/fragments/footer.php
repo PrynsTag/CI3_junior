@@ -2,7 +2,7 @@
     <div class="row ft-main">
         <div class="col-md ft-content">
             <div class="container-ft">
-                <img class="logo-ft" src="assets/images/JARS-ICON.png" alt="logo">
+                <img class="logo-ft" src="<?= base_url(); ?>assets/images/JARS-ICON.png" alt="logo">
             </div>
         </div>
         <div class="col-md ft-content">
@@ -46,8 +46,8 @@
             $("#logo").fadeIn(500);
         }
     });
-    var oldSrc = 'assets/images/JARS-ICON-rev.png';
-    var newSrc = 'assets/images/JARS-ICON.png';
+    var oldSrc = '<?= base_url(); ?>assets/images/JARS-ICON-rev.png';
+    var newSrc = '<?= base_url(); ?>assets/images/JARS-ICON.png';
     $("#logo").hover(function() {
         $(this).attr('src', newSrc)
     });
