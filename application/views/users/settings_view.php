@@ -1,0 +1,22 @@
+<!--Body-->
+<div class="settingsBody">
+    <div class="settingsCard">
+        <div class="settingsImage">
+            <img src="<?= base_url() . $user_details->userinfo_image ?>" alt="user-image">
+            <img src="<?= base_url() . $user_details->userinfo_image ?>" alt="user-image">
+        </div>
+        <div class="settingsDetails">
+            <div class="settingsContent">
+                <h2><?= $user_details->userinfo_firstname ?> <?= $user_details->userinfo_lastname ?></h2>
+                <p>
+                    <span> <b>Email Address:</b> <?= $user_details->user_email ?></span>
+                    <br><span> <b><?php echo "Bio: " ?></b><?= $user_details->userinfo_bio ?></span>
+                </p>
+                <div class="settingButtons">
+                    <a class href="editprofile.php">Edit Profile</a>
+                    <a class href="changepassword.php">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

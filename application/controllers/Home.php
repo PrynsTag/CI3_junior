@@ -32,6 +32,21 @@ class Home extends CI_Controller
 
     public function settings()
     {
+        $user = $this->session->userdata();
+
+        $query_data = [
+            'userinfo_id' => $user['user_id']
+        ];
+
+        $user_info = $this->user_model->join_userinfo($query_data)[0];
+
+        $data = [
+            'header_title' => 'Settings - Beta Juniors',
+            'main_view' => 'users/settings_view',
+            'user_details' => $user_info
+        ];
+
+        $this->load->view('layouts/home', $data);
     }
 
     public function about()
@@ -51,5 +66,13 @@ class Home extends CI_Controller
         $this->session->unset_userdata('user_info');
 
         redirect('login');
+    }
+
+    public function editProfile()
+    {
+    }
+
+    public function changePassword()
+    {
     }
 }
