@@ -1,3 +1,7 @@
+<?php if ($this->session->userdata() == NULL) : ?>
+    <?= redirect('user/login'); ?>
+<?php endif; ?>
+
 <!doctype html>
 <html lang="en">
 
