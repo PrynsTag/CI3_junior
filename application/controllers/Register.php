@@ -4,9 +4,9 @@ include ".config";
 
 class Register extends CI_Controller
 {
-    public function index()
+    public function index($page = "register_view", $data = array("title" => "tropangpochi"))
     {
-        $this->load->view('register_view');
+        $this->load->view($page, $data);
     }
 
     public function validation()
@@ -14,20 +14,22 @@ class Register extends CI_Controller
         global $gmailUsername;
         global $gmailPassword;
 
-        $this->form_validation->set_rules("username", "Username", "required|trim|is_unique[users.username]");
+        $this->form_validation->set_rules("username", "Username", "required|trim|is_unique[user.user_username]");
         $this->form_validation->set_rules("password", "Password", "required|trim");
         $this->form_validation->set_rules("cpassword", "Confirm Password", "required|trim|matches[password]");
-        $this->form_validation->set_rules("emailadd", "Email Address", "required|trim|valid_email|is_unique[users.emailadd]");
+        $this->form_validation->set_rules("emailadd", "Email Address", "required|trim|valid_email|is_unique[user.user_email]");
 
         if ($this->form_validation->run()) {
             $verification_key = mt_rand(100000, 999999);
 //            $encrypted_password = $this->encrypt->encode($this->input->post("password")); if password needs to encrypted
             $data = array(
-                "username" => $this->input->post("username"),
-                "password" => $this->input->post("password"),
-                "emailadd" => $this->input->post("emailadd"),
-                "code" => $verification_key
+                "user_username" => $this->input->post("username"),
+                "user_password" => $this->input->post("password"),
+                "user_email" => $this->input->post("emailadd"),
+                "user_code" => $verification_key
             );
+
+            $this->session->set_tempdata($data, NULL, 300);
 
             $id = $this->register_model->insert_user($data);
 
@@ -71,5 +73,21 @@ class Register extends CI_Controller
         } else {
             $this->index();
         }
+    }
+
+    public function verify_email()
+    {
+        $uri_code = $this->uri->segment(3);
+
+        $result = $this->register_model->get_code($uri_code)[0];
+        $db_code = $result->user_code;
+
+        if ($uri_code == $db_code) {
+            $this->index("verification", array("code" => $db_code, "emailadd" => $result->user_email));
+        } else {
+            show_error("Failed");
+        }
+
+        $this->index("verification", array("code" => $db_code, "emailadd" => $result->user_email));
     }
 }
