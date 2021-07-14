@@ -1,17 +1,17 @@
 <?php
-    include('dbconnection.php');
+include('dbconnection.php');
 
-    if (!isset($_SESSION['myid'])) {
-        header("Location: old_index.php");
-    }
+if (!isset($_SESSION['myid'])) {
+    header("Location: old_index.php");
+}
 
-    $result2 = $conn->query("SELECT * FROM `users` WHERE id = '" . $_SESSION['myid'] . "'");
-    $row2 = $result2->fetch_assoc();
+$result2 = $conn->query("SELECT * FROM `users` WHERE id = '" . $_SESSION['myid'] . "'");
+$row2 = $result2->fetch_assoc();
 
-    if ($row2['code'] == "") {
-    } else {
-        header("Location: verification.php");
-    }
+if ($row2['code'] == "") {
+} else {
+    header("Location: verification.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +37,8 @@
 </head>
 
 <body>
-   <!-- Navbar -->
-   <nav class="navbar navbar-title">
+    <!-- Navbar -->
+    <nav class="navbar navbar-title">
         <span class="navbar-text">juniors.</span>
     </nav>
     <div class="navbar-main sticky-top">
@@ -90,7 +90,7 @@
                             echo "<div class=\"col col-remove-margin\">";
                             echo "<div class=\"card\">";
                             //echo "<div class=\"boxImageContainer\">";
-                            echo '<div style="background: url(\''.$row['photo'].'\') center no-repeat; background-size: 100% 100%;" class="boxImageContainer">';
+                            echo '<div style="background: url(\'' . $row['photo'] . '\') center no-repeat; background-size: 100% 100%;" class="boxImageContainer">';
                             // echo '<img src="' . $row['photo'] . '" class="card-img-top boxImage">';
                             echo "</div>";
                             echo "<div class=\"card-body colcard-body d-flex align-items-center\">";

@@ -58,16 +58,19 @@ class Users extends CI_Controller
                     'user_password' => $password
                 ];
 
+                // Get User Data from Database
                 $result = $this->user_model->get_userdata($user_info)[0];
 
                 $userdata = [
-                    'user_id' => $result->user_id,
+                    'user_id'       => $result->user_id,
                     'user_username' => $result->user_username
                 ];
-
+                
+                // Set data to SESSION
                 $this->session->set_userdata($userdata);
 
-                redirect('home');   // Go to this section if login is success
+                // Transfer user to homepage
+                redirect('home');   // Go to this controller view if login is success
             } else { // Run this code if there is no account
 
                 // Message that will display in modal

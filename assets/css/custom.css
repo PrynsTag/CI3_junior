@@ -16,6 +16,10 @@ Sub - font-family: 'Roboto', sans-serif;
     background-color: #ffd464;
 }
 
+.a:hover {
+    color: black;
+}
+
 .logo_card {
     height: 520px;
     width: 350px;
@@ -28,9 +32,9 @@ Sub - font-family: 'Roboto', sans-serif;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 
@@ -46,9 +50,9 @@ Sub - font-family: 'Roboto', sans-serif;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 
@@ -431,6 +435,7 @@ i {
 }
 
 @media (max-width: 991.98px) {
+
     /*Navbar*/
     .navbar-nav,
     .nav-link,
@@ -445,9 +450,9 @@ i {
     }
 }
 
-#cardContainer {
+/* #cardContainer {
     padding: 70px 0px 140px;
-}
+} */
 
 .headingContainer h1 {
     font-family: 'Anton', sans-serif;
@@ -521,13 +526,17 @@ a {
     padding: 3%;
 }
 
-.button-1 a, .button-2 a {
+.button-1 a,
+.button-2 a {
     color: white;
     background-color: black;
     padding: 5px;
 }
 
-.button-1 a:hover, .button-1 a:focus, .button-2 a:hover, .button-2 a:focus {
+.button-1 a:hover,
+.button-1 a:focus,
+.button-2 a:hover,
+.button-2 a:focus {
     color: black;
     background-color: #ffd464;
     padding: 5px;
@@ -542,7 +551,8 @@ a {
     padding: 3%;
 }
 
-.card-title, .card-text {
+.card-title,
+.card-text {
     text-align: center;
 }
 
@@ -566,7 +576,8 @@ a {
     width: 100%;
 }
 
-.back-button:hover, .back-button:focus {
+.back-button:hover,
+.back-button:focus {
     color: #ffd464;
 }
 
@@ -785,7 +796,8 @@ a {
 
 /** changepassword.php **/
 
-.h3, h3 {
+.h3,
+h3 {
     color: white;
     margin-bottom: 15px;
     font-family: 'Open Sans', sans-serif;
