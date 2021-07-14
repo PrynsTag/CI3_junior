@@ -79,15 +79,27 @@ class Register extends CI_Controller
     {
         $uri_code = $this->uri->segment(3);
 
-        $result = $this->register_model->get_code($uri_code)[0];
+        $result = $this->register_model->get_code($uri_code);
         $db_code = $result->user_code;
+        $updated = False;
 
-        if ($uri_code == $db_code) {
-            $this->index("verification", array("code" => $db_code, "emailadd" => $result->user_email));
-        } else {
-            show_error("Failed");
+        if ($uri_code === $db_code) {
+            $data = array(
+                'user_code' => '',
+                'user_verification' => 1
+            );
+
+            $updated = $this->register_model->verify_user($data, $db_code);
         }
 
-        $this->index("verification", array("code" => $db_code, "emailadd" => $result->user_email));
+        $this->index("layouts/main",
+            array(
+                "code" => $db_code,
+                "emailadd" => $result->user_email,
+                "updated" => $updated,
+                "main_view" => "verification",
+                "header_title" => "Verification - Beta Juniors"
+            )
+        );
     }
 }

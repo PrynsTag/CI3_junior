@@ -11,7 +11,15 @@ class Register_model extends CI_Model
     public function get_code($uri_code)
     {
         $query = $this->db->get_where("user", array("user_code" => $uri_code));
-        $result = $query->result();
-        return $result;
+        return $query->result()[0];
+    }
+
+    public function verify_user($update_data, $code)
+    {
+        $this->db->set("user_code", $update_data["user_code"]);
+        $this->db->set("user_verification", $update_data["user_verification"]);
+        $this->db->where("user_code", $code);
+        $this->db->update("user");
+        return True;
     }
 }
