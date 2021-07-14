@@ -10,4 +10,13 @@ class User_Model extends CI_Model
 
         return $user->result();
     }
+
+    public function get_userdata($data)
+    {
+        $this->db->where($data);
+
+        $result = $this->db->get('user');
+
+        return $result->result();
+    }
 }

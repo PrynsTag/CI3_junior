@@ -1,13 +1,21 @@
 <?php if ($this->session->flashdata('error')) : ?>
-    <div class="alert alert-danger">
-        <p><?= $this->session->flashdata('error') ?></p>
-    </div>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '<?= $this->session->flashdata('error') ?>',
+        })
+    </script>
 <?php endif; ?>
 
 <?php if ($this->session->flashdata('success')) : ?>
-    <div class="alert alert-success">
-        <p><?= $this->session->flashdata('success') ?></p>
-    </div>
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: '<?= $this->session->flashdata('success') ?>',
+        })
+    </script>
 <?php endif ?>
 
 <nav class="navbar logo-change navbar-light bg-light" style="padding:0;">

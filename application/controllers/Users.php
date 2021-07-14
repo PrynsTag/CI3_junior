@@ -26,14 +26,14 @@ class Users extends CI_Controller
         // Check rules that are violated
         if ($this->form_validation->run() == false) {   // Run this code if rules are violated
             $message = [
-                'error' => validation_errors()
+                'error' => 'Your username or password may be incorrect!'
             ];
 
             // Show the error message from the user
             $this->session->set_flashdata($message);
 
             // Go to this section if violated some rules
-            redirect('home');
+            redirect('login');
         } else {                                        // Run this code if rules are not violated
 
             // Get input datas from login form
@@ -51,18 +51,23 @@ class Users extends CI_Controller
             $countUser = count($user);
 
             // Check user if there is an account
-            if ($countUser == 1) { // Run this code if there is an account
+            if ($countUser == 1) {  // Run this code if there is an account
 
-                // Message that will display in modal
-                $message = [
-                    'success' => 'Successfully login.'
+                $user_info = [
+                    'user_username' => $username,
+                    'user_password' => $password
                 ];
 
-                // Show success message from the user
-                $this->session->set_flashdata($message);
+                $result = $this->user_model->get_userdata($user_info)[0];
 
-                // Go to this section if login is success
-                redirect('home');
+                $userdata = [
+                    'user_id' => $result->user_id,
+                    'user_username' => $result->user_username
+                ];
+
+                $this->session->set_userdata($userdata);
+
+                redirect('home');   // Go to this section if login is success
             } else { // Run this code if there is no account
 
                 // Message that will display in modal
@@ -74,7 +79,7 @@ class Users extends CI_Controller
                 $this->session->set_flashdata($message);
 
                 // Go to the login form if there is no account
-                redirect('home');
+                redirect('login');
             }
         }
     }
