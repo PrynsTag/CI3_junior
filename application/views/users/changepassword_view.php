@@ -36,7 +36,7 @@ if ($this->session->userdata('user_info') == NULL) {
             <!--Logo-->
             <div class="d-flex justify-content-center">
                 <div class="brand_logo_container">
-                    <img src="<?= base_url() . $user_info->userinfo_image; ?>" class="brand_logo" alt="Logo" id="image_display">
+                    <img src="<?= base_url('uploads/user_profile/') . $user_info->userinfo_image; ?>" class="brand_logo" alt="Logo" id="image_display">
                 </div>
             </div>
             <!--Form-->

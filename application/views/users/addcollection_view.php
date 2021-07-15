@@ -1,40 +1,61 @@
+<?php if ($this->session->flashdata('error')) : ?>
+  <div class="alert alert-danger">
+    <p><?= $this->session->flashdata('error') ?></p>
+  </div>
+<?php endif; ?>
+
+<?php if ($this->session->flashdata('modal_error')) : ?>
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: '<?= $this->session->flashdata('modal_error') ?>',
+    });
+  </script>
+<?php endif; ?>
+
+<?php if ($this->session->flashdata('modal_success')) : ?>
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: '<?= $this->session->flashdata('modal_success') ?>',
+    });
+  </script>
+<?php endif; ?>
+
 <div class="d-flex justify-content-center form_container_2">
-  <?= form_open_multipart("collection/validation") ?>
+  <?= form_open_multipart("home/addCollection", array('method' => 'post')) ?>
   <div class="input-group mb-3">
     <div class="input-group-append">
       <span class="input-group-text"><i class="fas fa-pager"></i></span>
     </div>
-    <input type="text" name="title" class="form-control input_text" placeholder="Title" required>
+    <?= form_input($input_title); ?>
   </div>
   <div class="input-group mb-3">
     <div class="input-group-append">
       <span class="input-group-text"><i class="fas fa-align-justify"></i></span>
     </div>
-    <textarea class="form-control input_text input_textarea"
-              name="description"
-              placeholder="Description"
-              required
-              rows="3">
-    </textarea>
+    <?= form_textarea($input_description); ?>
   </div>
   <div class="input-group mb-3">
     <div class="input-group-append">
       <span class="input-group-text"><i class="fas fa-file-image"></i></span>
     </div>
-    <input type="file" name="image" class="form-control input_text" id="imgInp" required> <br>
+    <?= form_upload($input_upload); ?>
     <script>
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
 
-          reader.onload = function (e) {
+          reader.onload = function(e) {
             $('#image_display').attr('src', e.target.result);
           }
           reader.readAsDataURL(input.files[0]); // convert to base64 string
         }
       }
 
-      $("#imgInp").change(function () {
+      $("#imgInp").change(function() {
         readURL(this);
       });
     </script>
@@ -45,5 +66,5 @@
       <a class="back-button" href="<?= base_url("collection") ?>">Back</a>
     </div>
   </div>
-  </form>
+  <?php echo form_close(); ?>
 </div>

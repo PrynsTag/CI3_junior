@@ -2,8 +2,8 @@
 <div class="settingsBody">
     <div class="settingsCard">
         <div class="settingsImage">
-            <img src="<?= base_url() . $user_details->userinfo_image ?>" alt="user-image">
-            <img src="<?= base_url() . $user_details->userinfo_image ?>" alt="user-image">
+            <img src="<?= base_url("uploads/user_profile/") . $user_details->userinfo_image ?>" alt="user-image">
+            <img src="<?= base_url("uploads/user_profile/") . $user_details->userinfo_image ?>" alt="user-image">
         </div>
         <div class="settingsDetails">
             <div class="settingsContent">

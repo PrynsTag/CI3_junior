@@ -10,7 +10,7 @@
                 <?php foreach ($posts as $item) : ?>
                     <div class="col col-remove-margin">
                         <div class="card">
-                            <div class="boxImageContainer" style="background: url('<?= base_url() . $item->post_photo ?>') center no-repeat; background-size: 100% 100%;">
+                            <div class="boxImageContainer" style="background: url('<?= base_url("uploads/posts/") . $item->post_photo ?>') center no-repeat; background-size: 100% 100%;">
                             </div>
                             <div class="card-body colcard-body d-flex align-items-center">
                                 <div>
