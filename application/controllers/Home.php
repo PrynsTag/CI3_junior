@@ -68,9 +68,23 @@ class Home extends CI_Controller
 
     public function editProfile_View()
     {
+        $session_data = $this->session->userdata('user_info');
+
+        $query_data = [
+            'user_id' => $session_data['user_id']
+        ];
+
+        $db_userdata = $this->user_model->join_userinfo($query_data)[0];
+
         $data = [
-            'header_title' => 'Change Profile - Beta Juniors',
-            'main_view' => 'users/changepassword_view'
+            'header_title' => 'Edit Profile - Beta Juniors',
+            'main_view' => 'users/editprofile_view',
+            'user_details' => $db_userdata,
+            'form_attributes' => array('method' => 'post'),
+            'input_firstname' => array('class' => 'form-control input_text', 'name' => 'firstname', 'type' => 'text', 'placeholder' => 'First Name', 'value' => $db_userdata->userinfo_firstname),
+            'input_lastname' => array('class' => 'form-control input_text', 'name' => 'lastname', 'type' => 'text', 'placeholder' => 'Last Name', 'value' => $db_userdata->userinfo_lastname),
+            'input_bio' => array('class' => 'form-control input_text input_textarea', 'name' => 'bio', 'placeholder' => 'Bio', 'value' => $db_userdata->userinfo_bio),
+            'input_upload' => array('class' => 'form-control input_text', 'id' => 'imgInp', 'type' => 'file', 'name' => 'image'), array('value' => base_url() . $db_userdata->userinfo_image)
         ];
 
         $this->load->view('layouts/main', $data);
@@ -90,11 +104,66 @@ class Home extends CI_Controller
                 'rules' => 'required|min_length[3]'
             ),
             array(
-                'field' => 'lastname',
-                'label' => 'Lastname',
+                'field' => 'bio',
+                'label' => 'Bio',
                 'rules' => 'required'
             )
         );
+
+        $this->form_validation->set_rules($input_rules);
+
+        if ($this->form_validation->run() == false) {
+            $message = [
+                'error' => validation_errors()
+            ];
+
+            $this->session->set_flashdata($message);
+
+            redirect('home/editprofile_view');
+        } else {
+            $config = [
+                'upload_path' => './uploads/user_profile/',
+                'allowed_types' => 'jpg|png'
+            ];
+
+            $this->upload->initialize($config);
+
+
+
+            if (!$this->upload->do_upload('image')) {
+                $data_error = [
+                    'error' => $this->upload->display_errors()
+                ];
+
+                $this->session->set_flashdata($data_error);
+
+                redirect('home/editprofile_view');
+            } else {
+                $firstname = $this->input->post('firstname', true);
+                $lastname = $this->input->post('lastname', true);
+                $bio = $this->input->post('bio', true);
+                $userImage = $this->upload->data('file_name');
+
+                $data = array(
+                    'userinfo_firstname' => ucwords(strtolower($firstname)),
+                    'userinfo_lastname' => ucwords(strtolower($lastname)),
+                    'userinfo_bio' => $bio,
+                    'userinfo_image' => './uploads/user_profile/' . $userImage
+                );
+
+                $session_data = $this->session->userdata('user_info');
+
+                $this->user_model->updateProfile($session_data['user_id'], $data);
+
+                $message = [
+                    'modal_success' => 'Edit Success'
+                ];
+
+                $this->session->set_flashdata($message);
+
+                redirect('home/editprofile_view');
+            }
+        }
     }
 
     public function changePassword_View()

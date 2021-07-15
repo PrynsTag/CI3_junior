@@ -1,11 +1,13 @@
+<?php
+if ($this->session->userdata('user_info') == NULL) {
+    redirect('login');
+}
+?>
+
 <?php if ($this->session->flashdata('error')) : ?>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: '<?= $this->session->flashdata('error') ?>',
-        });
-    </script>
+    <div class="alert alert-danger">
+        <p><?= $this->session->flashdata('error') ?></p>
+    </div>
 <?php endif; ?>
 
 <?php if ($this->session->flashdata('modal_error')) : ?>
@@ -38,45 +40,6 @@
                 </div>
             </div>
             <!--Form-->
-            <?php
-            // $sql = $conn->query("SELECT * FROM `users` WHERE `id` = $userid");
-            // $row = $sql->fetch_assoc();
-
-            // if (isset($_POST['changePassword'])) {
-            //     $currentPassword = mysqli_real_escape_string($conn, htmlspecialchars($_POST['currentPassword']));
-            //     $newPassword = mysqli_real_escape_string($conn, htmlspecialchars($_POST['newPassword']));
-            //     $confirmNewPassword = mysqli_real_escape_string($conn, htmlspecialchars($_POST['confirmNewPassword']));
-            //     if ($row['password'] == $currentPassword) {
-            //         if ($newPassword == $confirmNewPassword) {
-            //             $conn->query("UPDATE users SET password = '" . $newPassword . "'  WHERE `id` = '" . $_SESSION['myid'] . "'");
-            //             echo "<script> Swal.fire({
-            //                         icon: 'success',
-            //                         title: 'Password Successfully Changed!',
-            //                         text: 'Redirecting to Settings...',
-            //                         }).then(function() {
-            //                         window.location = \"settings.php\";
-            //                         }); 
-            //                         </script>";
-            //         } else {
-            //             echo "<script> Swal.fire({
-            //                         icon: 'error',
-            //                         title: 'Error',
-            //                         text: 'Password Mismatched!',
-            //                         }); 
-            //                         </script>";
-            //         }
-            //     } else {
-            //         echo "<script> Swal.fire({
-            //                     icon: 'error',
-            //                     title: 'Error',
-            //                     text: 'Inputted Password Does Not Match Current Password!',
-            //                     }); 
-            //                     </script>";
-            //     }
-            // }
-
-            ?>
-
             <div class="d-flex justify-content-center form_container_2">
                 <?php echo form_open('home/changePassword', $form_attributes); ?>
                 <h3>Change Password</h3>
