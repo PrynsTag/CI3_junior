@@ -5,7 +5,7 @@
     <div class="navbar-main sticky-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a href="homepage.php" id="#navbar-brand-container">
+                <a href="<?= base_url("home") ?>" id="#navbar-brand-container">
                     <img src="<?= base_url() ?>assets/images/JARS-ICON.png" alt="logo" id="logo">
                     <a class="navbar-brand" href="homepage.php">juniors.</a>
                 </a>

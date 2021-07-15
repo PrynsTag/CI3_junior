@@ -34,56 +34,6 @@
                 </div>
             </div>
             <!--Form-->
-            <?php
-            // if (isset($_POST['submit'])) {
-            //     $title = $_POST['title'];
-            //     $desc = $_POST['description'];
-            //     $id = $_SESSION['myid'];
-
-            //     $errors = array();
-            //     $file_name = $_FILES['image']['name'];
-            //     $file_size = $_FILES['image']['size'];
-            //     $file_tmp = $_FILES['image']['tmp_name'];
-            //     $file_type = $_FILES['image']['type'];
-            //     $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
-
-            //     $extensions = array("jpeg", "jpg", "png");
-
-            //     if (in_array($file_ext, $extensions) === false) {
-            //         $errors[] = "Invalid Extension (PNG, JPEG & JPG Only)";
-            //     }
-
-            //     if ($file_size > 5242880) {
-            //         $errors[] = "File too large! (Max. 5Mb)";
-            //     }
-
-            //     if (empty($errors) == true) {
-            //         move_uploaded_file($file_tmp, "./uploads/posts/" . $file_name);
-            //         $link = "./uploads/posts/" . $file_name;
-            //         $sql = "UPDATE posts SET title = '" . $title . "', description = '" . $desc . "', photo = '" . $link . "' WHERE `post_id` = '" . $post_id . "'";
-            //         $result = $conn->query($sql);
-            //         echo "<script> Swal.fire({
-            //                 icon: 'success',
-            //                 title: 'Welcome to juniors!',
-            //                 text: 'Redirecting to Home Page...',
-            //                 }).then(function() {
-            //                 window.location = \"mycollection.php\";
-            //                 }); 
-            //                 </script>";
-            //     } else {
-            //         $sql = "UPDATE posts SET title = '" . $title . "', description = '" . $desc . "' WHERE `post_id` = '" . $post_id . "'";
-            //         $result = $conn->query($sql);
-            //         echo "<script> Swal.fire({
-            //                 icon: 'success',
-            //                 title: 'Welcome to juniors!',
-            //                 text: 'Redirecting to Home Page...',
-            //                 }).then(function() {
-            //                 window.location = \"mycollection.php\";
-            //                 }); 
-            //                 </script>";
-            //     }
-            // }
-            ?>
             <div class="d-flex justify-content-center form_container_2">
                 <?php echo form_open_multipart('home/editCollection/' . $post_details->post_id, array('method' => 'post')); ?>
                 <div class="input-group mb-3">

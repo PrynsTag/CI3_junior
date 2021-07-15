@@ -9,9 +9,9 @@
             <div class="container-ft menu-ft">
                 <h1>Links</h1>
                 <ul>
-                    <li><a href="mycollection.php">My Collection</a></li>
-                    <li><a href="settings.php">Settings</a></li>
-                    <li><a href="about.php">About</a></li>
+                    <li><a href="<?= base_url('home/collection'); ?>">My Collection</a></li>
+                    <li><a href="<?= base_url('home/settings'); ?>">Settings</a></li>
+                    <li><a href="<?= base_url('home/about'); ?>">About</a></li>
                 </ul>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="https://www.facebook.com/juliejamolo">Facebook</a></li>
                     <li><a href="https://www.instagram.com/rckyrmnx">Instagram</a></li>
-                    <li><a href="https://www.twitter.com/_dainiii">Twitter</a></li>
+                    <li><a href="https://www.twitter.com/">Twitter</a></li>
                 </ul>
             </div>
         </div>
@@ -46,8 +46,8 @@
             $("#logo").fadeIn(500);
         }
     });
-    var oldSrc = '<?= base_url(); ?>assets/images/JARS-ICON-rev.png';
-    var newSrc = '<?= base_url(); ?>assets/images/JARS-ICON.png';
+    var oldSrc = '<?= base_url('assets/images/JARS-ICON-rev.png'); ?>';
+    var newSrc = '<?= base_url('assets/images/JARS-ICON.png'); ?>';
     $("#logo").hover(function() {
         $(this).attr('src', newSrc)
     });
