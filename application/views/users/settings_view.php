@@ -13,8 +13,8 @@
                     <br><span> <b><?php echo "Bio: " ?></b><?= $user_details->userinfo_bio ?></span>
                 </p>
                 <div class="settingButtons">
-                    <a class href="editprofile.php">Edit Profile</a>
-                    <a class href="changepassword.php">Change Password</a>
+                    <a class href="<?= base_url() ?>home/editprofile_view">Edit Profile</a>
+                    <a class href="<?= base_url() ?>home/changepassword_view">Change Password</a>
                 </div>
             </div>
         </div>
