@@ -37,9 +37,11 @@ class User_Model extends CI_Model
         $this->db->update('userinfo');
     }
 
-    public function changePassword($searchData, $newData)
+    public function changePassword($userId, $userPassword)
     {
-        $this->db->where($searchData);
-        $this->db->update('user', $newData);
+        $this->db->where('user_id', $userId);
+        $this->db->set('user_password', $userPassword);
+        $this->db->update('user');
+        return $this->db->trans_complete();
     }
 }
