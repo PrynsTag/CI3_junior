@@ -44,8 +44,8 @@
                 <div class="d-flex justify-content-center form_container_2">
                     <form action="<?= base_url() ?>register/validation" method="POST">
                         <?php
-                        if ($this->session->flashdata("message")) {
-                            echo '<div class="alert alert-success">' . $this->session->flashdata("message") . '</div>';
+                        if ($this->session->tempdata("message")) {
+                            echo '<div class="alert alert-success">' . $this->session->tempdata("message") . '</div>';
                         }
                         ?>
                         <div class="input-group mb-3">
