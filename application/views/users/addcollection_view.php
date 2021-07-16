@@ -1,25 +1,25 @@
-<?php if ($this->session->flashdata('error')) : ?>
+<?php if ($this->session->tempdata('error')) : ?>
   <div class="alert alert-danger">
-    <p><?= $this->session->flashdata('error') ?></p>
+    <p><?= $this->session->tempdata('error') ?></p>
   </div>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('modal_error')) : ?>
+<?php if ($this->session->tempdata('modal_error')) : ?>
   <script>
     Swal.fire({
       icon: 'error',
       title: 'Error',
-      text: '<?= $this->session->flashdata('modal_error') ?>',
+      text: '<?= $this->session->tempdata('modal_error') ?>',
     });
   </script>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('modal_success')) : ?>
+<?php if ($this->session->tempdata('modal_success')) : ?>
   <script>
     Swal.fire({
       icon: 'success',
       title: 'Success',
-      text: '<?= $this->session->flashdata('modal_success') ?>',
+      text: '<?= $this->session->tempdata('modal_success') ?>',
     });
   </script>
 <?php endif; ?>
