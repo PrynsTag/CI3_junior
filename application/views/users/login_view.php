@@ -1,19 +1,19 @@
-<?php if ($this->session->flashdata('error')) : ?>
+<?php if ($this->session->tempdata('error')) : ?>
     <script>
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: '<?= $this->session->flashdata('error') ?>',
+            text: '<?= $this->session->tempdata('error') ?>',
         })
     </script>
 <?php endif; ?>
 
-<?php if ($this->session->flashdata('success')) : ?>
+<?php if ($this->session->tempdata('success')) : ?>
     <script>
         Swal.fire({
             icon: 'success',
             title: 'Success',
-            text: '<?= $this->session->flashdata('success') ?>',
+            text: '<?= $this->session->tempdata('success') ?>',
         })
     </script>
 <?php endif ?>
