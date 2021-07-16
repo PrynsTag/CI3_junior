@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata() == NULL) : ?>
+<?php if ($this->session->userdata('user_info') == NULL) : ?>
     <?= redirect('user/login'); ?>
 <?php endif; ?>
 

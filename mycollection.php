@@ -75,7 +75,7 @@ if (!isset($_SESSION['myid'])) {
             <div class="contentContainer">
                 <ul class="nav justify-content-end collectionCard additemnavbar">
                     <li class="nav-item">
-                        <a class="nav-link" href="additem.php">Add Post</a>
+                        <a class="nav-link" href="application/views/users/add_collection.php">Add Post</a>
                     </li>
                 </ul>
                 <div class="row row-cols-1 row-cols-md-3 g-4 collectionCard">

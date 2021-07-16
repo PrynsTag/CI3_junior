@@ -65,9 +65,9 @@ class Users extends CI_Controller
                     'user_id'       => $result->user_id,
                     'user_username' => $result->user_username
                 ];
-                
+
                 // Set data to SESSION
-                $this->session->set_userdata($userdata);
+                $this->session->set_userdata('user_info', $userdata);
 
                 // Transfer user to homepage
                 redirect('home');   // Go to this controller view if login is success

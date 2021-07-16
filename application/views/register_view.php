@@ -81,7 +81,7 @@
                         </div>
                         <div class="mt-4">
                             <div class="d-flex justify-content-end links">
-                                <a href="<?= base_url() ?>old_index.php" class="signup">Back</a>
+                                <a href="<?= base_url() ?>login" class="signup">Back</a>
                             </div>
                         </div>
                     </form>

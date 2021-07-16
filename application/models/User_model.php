@@ -19,4 +19,27 @@ class User_Model extends CI_Model
 
         return $result->result();
     }
+
+    public function join_userinfo($query_data)
+    {
+        $this->db->select('*');
+        $this->db->from('userinfo');
+        $this->db->join('user', 'userinfo.userinfo_id = user.user_id', 'inner');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function updateProfile($user_id, $data)
+    {
+        $this->db->set($data);
+        $this->db->where('user_id', $user_id);
+        $this->db->update('userinfo');
+    }
+
+    public function changePassword($searchData, $newData)
+    {
+        $this->db->where($searchData);
+        $this->db->update('user', $newData);
+    }
 }
