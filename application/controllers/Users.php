@@ -25,12 +25,8 @@ class Users extends CI_Controller
 
         // Check rules that are violated
         if ($this->form_validation->run() == false) {   // Run this code if rules are violated
-            $message = [
-                'error' => 'Your username or password may be incorrect!'
-            ];
-
             // Show the error message from the user
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('error', 'Your username or password may be incorrect!', 1);
 
             // Go to this section if violated some rules
             redirect('login');
@@ -73,13 +69,8 @@ class Users extends CI_Controller
                 redirect('home');   // Go to this controller view if login is success
             } else { // Run this code if there is no account
 
-                // Message that will display in modal
-                $message = [
-                    'error' => 'You do not have an account yet.'
-                ];
-
                 // Show error message from the user
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('error', 'You do not have an account yet.', 1);
 
                 // Go to the login form if there is no account
                 redirect('login');

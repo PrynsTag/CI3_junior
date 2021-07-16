@@ -17,14 +17,9 @@ class Home extends CI_Controller
 
     public function collection()
     {
-        $user_id = $this->session->userdata('user_info');
+        $user_id = $this->session->userdata('user_info')["user_id"];
 
-        $query_data = [
-            'user_id' => $user_id['user_id']
-        ];
-
-        $get_posts = $this->collection_model->get_collection($query_data);
-        
+        $get_posts = $this->collection_model->get_collection($user_id);
 
         $data = [
             'header_title' => 'My Collection - Beta Juniors',
@@ -37,7 +32,6 @@ class Home extends CI_Controller
 
     public function addCollection_View()
     {
-        $user_id = $this->session->userdata('user_info');
 
         $data = [
             'header_title' => 'My Collection - Beta Juniors',
@@ -56,12 +50,12 @@ class Home extends CI_Controller
             array(
                 'field' => 'title',
                 'label' => 'Title',
-                'rules' => 'required|min_length[3]|max_length[15]'
+                'rules' => 'required'
             ),
             array(
                 'field' => 'description',
                 'label' => 'Description',
-                'rules' => 'required|max_length[30]'
+                'rules' => 'required'
             ),
             array(
                 'field' => 'image',
@@ -72,11 +66,7 @@ class Home extends CI_Controller
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == false) {
-            $message = [
-                'error' => validation_errors()
-            ];
-
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('error', validation_errors(), 1);
 
             redirect('home/addcollection_view');
         } else {
@@ -88,11 +78,8 @@ class Home extends CI_Controller
             $this->upload->initialize($image_config);
 
             if (!$this->upload->do_upload('image')) {
-                $data_error = [
-                    'error' => $this->upload->display_errors()
-                ];
 
-                $this->session->set_flashdata($data_error);
+                $this->session->set_tempdata('error', $this->upload->display_errors(), 1);
 
                 redirect('home/addcollection_view');
             } else {
@@ -111,11 +98,7 @@ class Home extends CI_Controller
 
                 $this->post_model->addPost($query_data);
 
-                $message = [
-                    'modal_success' => 'You added a new post'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('modal_success', 'You added a new post', 1);
 
                 redirect('collection/get_collection');
             }
@@ -129,7 +112,6 @@ class Home extends CI_Controller
         ];
 
         $db_data = $this->post_model->getPost($query_data)[0];
-
         $data = [
             'header_title' => 'Edit Post - Beta Juniors',
             'main_view' => 'users/editcollection_view',
@@ -149,12 +131,12 @@ class Home extends CI_Controller
             array(
                 'field' => 'title',
                 'label' => 'Title',
-                'rules' => 'required|min_length[3]'
+                'rules' => 'required'
             ),
             array(
                 'field' => 'description',
                 'label' => 'Description',
-                'rules' => 'required|max_length[50]'
+                'rules' => 'required'
             ),
             array(
                 'field' => 'image',
@@ -165,11 +147,7 @@ class Home extends CI_Controller
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == false) {
-            $message = [
-                'error' => validation_errors()
-            ];
-
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('error', validation_errors(), 1);
 
             redirect('home/editcollection_view/' . $post_id);
         } else {
@@ -181,15 +159,11 @@ class Home extends CI_Controller
             $this->upload->initialize($image_config);
 
             if (!$this->upload->do_upload('image')) {
-                $data_error = [
-                    'error' => $this->upload->display_errors()
-                ];
-
-                $this->session->set_flashdata($data_error);
+                $this->session->set_tempdata('error', $this->upload->display_errors(), 1);
 
                 redirect('home/editcollection_view/' . $post_id);
             } else {
-                $session_data = $this->session->userdata('user_info');
+                $user_id = $this->session->userdata('user_info')['user_id'];
                 $title = $this->input->post('title', true);
                 $description = $this->input->post('description', true);
                 $post_photo = $this->upload->data('file_name');
@@ -198,16 +172,12 @@ class Home extends CI_Controller
                     'post_title' => $title,
                     'post_description' => $description,
                     'post_photo' => $post_photo,
-                    'user_id' => $session_data['user_id']
+                    'user_id' => $user_id
                 ];
 
                 $this->post_model->editPost($post_id, $query_data);
 
-                $message = [
-                    'modal_success' => 'You added a new post'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('modal_success', 'You added a new post', 1);
 
                 redirect('home/editcollection_view/' . $post_id);
             }
@@ -311,11 +281,7 @@ class Home extends CI_Controller
         $this->form_validation->set_rules($input_rules);
 
         if ($this->form_validation->run() == false) {
-            $message = [
-                'error' => validation_errors()
-            ];
-
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('error', validation_errors(), 1);
 
             redirect('home/editprofile_view');
         } else {
@@ -327,11 +293,7 @@ class Home extends CI_Controller
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('image')) {
-                $data_error = [
-                    'error' => $this->upload->display_errors()
-                ];
-
-                $this->session->set_flashdata($data_error);
+                $this->session->set_tempdata('error', $this->upload->display_errors(), 1);
 
                 redirect('home/editprofile_view');
             } else {
@@ -351,11 +313,7 @@ class Home extends CI_Controller
 
                 $this->user_model->updateProfile($session_data['user_id'], $data);
 
-                $message = [
-                    'modal_success' => 'Edit Success'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('modal_success', 'Edit Success', 1);
 
                 redirect('home/editprofile_view');
             }
@@ -366,11 +324,7 @@ class Home extends CI_Controller
     {
         $user = $this->session->userdata('user_info');
 
-        $query_data = [
-            'userinfo_id' => $user['user_id']
-        ];
-
-        $user_info = $this->user_model->join_userinfo($query_data)[0];
+        $user_info = $this->user_model->join_userinfo($user['user_id'])[0];
 
         $data = [
             'header_title' => 'Change Password - Beta Juniors',
@@ -391,28 +345,24 @@ class Home extends CI_Controller
             array(
                 'field' => 'currentPassword',
                 'label' => 'Current Password',
-                'rules' => 'required|min_length[8]'
+                'rules' => 'required'
             ),
             array(
                 'field' => 'newPassword',
                 'label' => 'New Password',
-                'rules' => 'required|min_length[8]'
+                'rules' => 'required'
             ),
             array(
                 'field' => 'confirmPassword',
                 'label' => 'Confirm Password',
-                'rules' => 'required|min_length[8]|matches[newPassword]'
+                'rules' => 'required|matches[newPassword]'
             )
         );
 
         $this->form_validation->set_rules($input_rules);
 
         if ($this->form_validation->run() == false) {
-            $message = [
-                'error' => validation_errors()
-            ];
-
-            $this->session->set_flashdata($message);
+            $this->session->set_tempdata('error', validation_errors(), 1);
 
             redirect('home/changepassword_view');
         } else {
@@ -428,29 +378,14 @@ class Home extends CI_Controller
             $input_newPassword = $this->input->post('newPassword', true);
 
             if ($db_Password == $input_currentPassword) {
-                $searchData = [
-                    'user_id' => $session_userid
-                ];
 
-                $newData = [
-                    'user_password' => $input_newPassword
-                ];
+                $this->user_model->changePassword($session_userid, $input_newPassword);
 
-                $this->user_model->changePassword($searchData, $newData);
-
-                $message = [
-                    'modal_success' => 'Password Successfully Changed!'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('modal_success', 'Password Successfully Changed!', 1);
 
                 redirect('home/changepassword_view');
             } else {
-                $message = [
-                    'modal_error' => 'Password Mismatched!'
-                ];
-
-                $this->session->set_flashdata($message);
+                $this->session->set_tempdata('modal_error', 'Password Mismatched!', 1);
 
                 redirect('home/changepassword_view');
             }

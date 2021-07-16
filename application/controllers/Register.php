@@ -61,13 +61,13 @@ class Register extends CI_Controller
                 $this->email->message($message);
 
                 if ($this->email->send()) {
-                    $this->session->set_flashdata("message", "Check your email to verify your account!");
+                    $this->session->set_tempdata("message", "Check your email to verify your account!", 1);
                     redirect("register");
                 } else {
                     show_error($this->email->print_debugger());
                 }
             } else {
-                $this->session->set_flashdata("message", "Account not added.");
+                $this->session->set_tempdata("message", "Account not added.", 1);
                 redirect("register");
             }
         } else {
