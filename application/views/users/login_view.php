@@ -1,21 +1,13 @@
 <?php if ($this->session->tempdata('error')) : ?>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: '<?= $this->session->tempdata('error') ?>',
-        })
-    </script>
+    <div class="alert alert-danger">
+        <p><?= $this->session->tempdata('error') ?></p>
+    </div>
 <?php endif; ?>
 
 <?php if ($this->session->tempdata('success')) : ?>
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: '<?= $this->session->tempdata('success') ?>',
-        })
-    </script>
+    <div class="alert alert-success">
+        <p><?= $this->session->tempdata('success') ?></p>
+    </div>
 <?php endif ?>
 
 <nav class="navbar logo-change navbar-light bg-light" style="padding:0;">
