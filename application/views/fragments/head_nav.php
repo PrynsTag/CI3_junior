@@ -19,7 +19,7 @@
                             <a class="<?= $this->uri->segment(2) == null ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home">Home</a>
                         </li>
                         <li class="nav-item <?= $this->uri->segment(2) == 'collection' ? 'active' : '' ?>">
-                            <a class="<?= $this->uri->segment(2) == 'collection' ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home/collection">My Collection</a>
+                            <a class="<?= $this->uri->segment(2) == 'collection' ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>collection/get_collection">My Collection</a>
                         </li>
                         <li class="nav-item <?= $this->uri->segment(2) == 'settings' ? 'active' : '' ?>">
                             <a class="<?= $this->uri->segment(2) == 'settings' ? 'active-button' : 'nav-link' ?>" href="<?= base_url(); ?>home/settings">Settings</a>
