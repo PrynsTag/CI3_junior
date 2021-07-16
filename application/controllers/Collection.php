@@ -10,7 +10,7 @@ class Collection extends CI_Controller
 
     public function get_collection()
     {
-        $user_id = $this->session->userdata('user_id');
+        $user_id = $this->session->userdata('user_info')['user_id'];
 
         $get_posts = $this->collection_model->get_collection($user_id);
 

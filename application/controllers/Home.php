@@ -23,7 +23,8 @@ class Home extends CI_Controller
             'user_id' => $user_id['user_id']
         ];
 
-        $get_posts = $this->post_model->my_collection($query_data);
+        $get_posts = $this->collection_model->get_collection($query_data);
+        
 
         $data = [
             'header_title' => 'My Collection - Beta Juniors',
@@ -60,8 +61,7 @@ class Home extends CI_Controller
             array(
                 'field' => 'description',
                 'label' => 'Description',
-                'rules' => 'required|max_length[30]|is_unique[post.post_title]',
-                array('is_unique' => 'This title is already taken.')
+                'rules' => 'required|max_length[30]'
             ),
             array(
                 'field' => 'image',
@@ -77,6 +77,8 @@ class Home extends CI_Controller
             ];
 
             $this->session->set_flashdata($message);
+
+            redirect('home/addcollection_view');
         } else {
             $image_config = [
                 'upload_path' => './uploads/posts/',
@@ -91,6 +93,8 @@ class Home extends CI_Controller
                 ];
 
                 $this->session->set_flashdata($data_error);
+
+                redirect('home/addcollection_view');
             } else {
 
                 $session_data = $this->session->userdata('user_info');
@@ -113,7 +117,7 @@ class Home extends CI_Controller
 
                 $this->session->set_flashdata($message);
 
-                redirect('home/addcollection_view');
+                redirect('collection/get_collection');
             }
         }
     }
@@ -150,8 +154,7 @@ class Home extends CI_Controller
             array(
                 'field' => 'description',
                 'label' => 'Description',
-                'rules' => 'required|max_length[50]|is_unique[post.post_title]',
-                array('is_unique' => 'This title is already taken.')
+                'rules' => 'required|max_length[50]'
             ),
             array(
                 'field' => 'image',
@@ -341,7 +344,7 @@ class Home extends CI_Controller
                     'userinfo_firstname' => ucwords(strtolower($firstname)),
                     'userinfo_lastname' => ucwords(strtolower($lastname)),
                     'userinfo_bio' => $bio,
-                    'userinfo_image' => './uploads/user_profile/' . $userImage
+                    'userinfo_image' => $userImage
                 );
 
                 $session_data = $this->session->userdata('user_info');

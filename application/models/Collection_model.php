@@ -13,7 +13,7 @@ class Collection_model extends CI_Model
 
     public function get_collection($user_id)
     {
-        $this->db->where("user_id", $user_id);
+        $this->db->where("user_id", $user_id['user_id']);
         $result = $this->db->get('post');
 
         return $result->result();
