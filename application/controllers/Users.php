@@ -153,7 +153,7 @@ class Users extends CI_Controller
                     'user_username' => $user->user_username
                 ];
 
-                $this->session->userdata('user_info', $session_data);
+                $this->session->set_userdata('user_info', $session_data);
                 redirect('home');
             }
         }
