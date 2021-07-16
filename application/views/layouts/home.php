@@ -1,5 +1,5 @@
 <?php if ($this->session->userdata('user_info') == NULL) : ?>
-    <?= redirect('user/login'); ?>
+    <?= redirect('users/login'); ?>
 <?php endif; ?>
 
 <!doctype html>

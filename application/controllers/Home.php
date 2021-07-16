@@ -202,11 +202,11 @@ class Home extends CI_Controller
     {
         $user = $this->session->userdata('user_info');
 
-        $query_data = [
-            'userinfo_id' => $user['user_id']
-        ];
+        // $query_data = [
+        //     'userinfo_id' => $user['user_id']
+        // ];
 
-        $user_info = $this->user_model->join_userinfo($query_data)[0];
+        $user_info = $this->user_model->join_userinfo($user['user_id'])[0];
 
         $data = [
             'header_title' => 'Settings - Beta Juniors',

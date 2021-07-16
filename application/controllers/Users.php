@@ -24,13 +24,12 @@ class Users extends CI_Controller
         $this->form_validation->set_rules($config);
 
         // Check rules that are violated
-        if ($this->form_validation->run() == false) {   // Run this code if rules are violated
-            // Show the error message from the user
+        if ($this->form_validation->run() == false) {
+
             $this->session->set_tempdata('error', 'Your username or password may be incorrect!', 1);
 
-            // Go to this section if violated some rules
             redirect('login');
-        } else {                                        // Run this code if rules are not violated
+        } else {
 
             // Get input datas from login form
             $username = $this->input->post('username', true);
@@ -54,26 +53,113 @@ class Users extends CI_Controller
                     'user_password' => $password
                 ];
 
-                // Get User Data from Database
                 $result = $this->user_model->get_userdata($user_info)[0];
 
-                $userdata = [
-                    'user_id'       => $result->user_id,
-                    'user_username' => $result->user_username
-                ];
+                if ($result->user_verification == 1) {
+                    if ($this->user_model->join_userinfo($result->user_id) == NULL) {
+                        redirect('users/userinfo_view');
+                    } else {
+                        $userdata = [
+                            'user_id'       => $result->user_id,
+                            'user_username' => $result->user_username
+                        ];
 
-                // Set data to SESSION
-                $this->session->set_userdata('user_info', $userdata);
+                        // Set data to SESSION
+                        $this->session->set_userdata('user_info', $userdata);
 
-                // Transfer user to homepage
-                redirect('home');   // Go to this controller view if login is success
-            } else { // Run this code if there is no account
+                        redirect('home');
+                    }
+                } else {
+                    redirect('register');
+                }
+            } else {
 
                 // Show error message from the user
                 $this->session->set_tempdata('error', 'You do not have an account yet.', 1);
 
                 // Go to the login form if there is no account
                 redirect('login');
+            }
+        }
+    }
+
+    public function userinfo_view()
+    {
+        $data = [
+            'header_title' => 'My Collection - Beta Juniors',
+            'main_view' => 'users/userinfo_view',
+            'input_title' => array('class' => 'form-control input_text', 'type' => 'text', 'name' => 'title', 'placeholder' => 'Title'),
+            'input_description' => array('class' => 'form-control input_text input_textarea', 'type' => 'text', 'name' => 'description', 'placeholder' => 'Description', 'rows' => '3'),
+            'input_upload' => array('class' => 'form-control input_text', 'id' => 'imgInp', 'type' => 'file', 'name' => 'image')
+        ];
+
+        $this->load->view('layouts/home', $data);
+    }
+
+    public function validation()
+    {
+        $config = array(
+            array(
+                'field' => 'title',
+                'label' => 'Title',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'description',
+                'label' => 'Description',
+                'rules' => 'required'
+            ),
+            array(
+                'field' => 'image',
+                'label' => 'Image'
+            ),
+        );
+
+        $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run() == false) {
+            $this->session->set_tempdata('error', validation_errors(), 1);
+
+            redirect('home/addcollection_view');
+        } else {
+            $image_config = [
+                'upload_path' => './uploads/posts/',
+                'allowed_types' => 'jpg|png'
+            ];
+
+            $this->upload->initialize($image_config);
+
+            if (!$this->upload->do_upload('image')) {
+
+                $this->session->set_tempdata('error', $this->upload->display_errors(), 1);
+
+                redirect('users/userinfo_view');
+            } else {
+
+                $session_data = $this->session->userdata('user_info');
+                $title = $this->input->post('title', true);
+                $description = $this->input->post('description', true);
+                $post_photo = $this->upload->data('file_name');
+
+                $query_data = [
+                    'post_title' => $title,
+                    'post_description' => $description,
+                    'post_photo' => $post_photo,
+                    'user_id' => $session_data['user_id']
+                ];
+
+                $this->user_model->insertProfile($query_data);
+
+                $user = $this->user_model->get($query_data)[0];
+
+                $session_data = [
+                    'user_id' => $user->user_id,
+                    'user_username' => $user->user_username
+                ];
+
+                $this->session->set_userdata('user_info', $session_data);
+
+                redirect('home');
             }
         }
     }

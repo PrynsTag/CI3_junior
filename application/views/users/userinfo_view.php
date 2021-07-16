@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center form_container_2">
-                <?php echo form_open_multipart('home/editprofile', $form_attributes); ?>
+                <?php echo form_open_multipart('users/validation', array('method' => 'post')); ?>
                 <div class="input-group mb-3">
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="far fa-user"></i></span>

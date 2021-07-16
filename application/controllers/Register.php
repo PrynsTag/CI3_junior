@@ -62,7 +62,7 @@ class Register extends CI_Controller
 
                 if ($this->email->send()) {
                     $this->session->set_tempdata("message", "Check your email to verify your account!", 1);
-                    redirect("register");
+                    redirect("login");
                 } else {
                     show_error($this->email->print_debugger());
                 }
@@ -75,21 +75,24 @@ class Register extends CI_Controller
         }
     }
 
-    public function verify_email()
+    public function verify_email($code)
     {
-        $uri_code = $this->uri->segment(3);
 
-        $result = $this->register_model->get_code($uri_code);
+        $result = $this->register_model->get_code($code);
         $db_code = $result->user_code;
         $updated = False;
 
-        if ($uri_code === $db_code) {
+        if ($code === $db_code) {
             $data = array(
                 'user_code' => '',
                 'user_verification' => 1
             );
 
             $updated = $this->register_model->verify_user($data, $db_code);
+
+            $this->session->set_tempdata('message', 'User Verified', 1);
+
+            redirect('login');
         }
 
         $this->index("layouts/main",
