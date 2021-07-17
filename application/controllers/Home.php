@@ -202,10 +202,6 @@ class Home extends CI_Controller
     {
         $user = $this->session->userdata('user_info');
 
-        // $query_data = [
-        //     'userinfo_id' => $user['user_id']
-        // ];
-
         $user_info = $this->user_model->join_userinfo($user['user_id'])[0];
 
         $data = [
@@ -238,11 +234,7 @@ class Home extends CI_Controller
     {
         $session_data = $this->session->userdata('user_info');
 
-        $query_data = [
-            'user_id' => $session_data['user_id']
-        ];
-
-        $db_userdata = $this->user_model->join_userinfo($query_data)[0];
+        $db_userdata = $this->user_model->join_userinfo($session_data['user_id'])[0];
 
         $data = [
             'header_title' => 'Edit Profile - Beta Juniors',
