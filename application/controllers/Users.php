@@ -66,6 +66,7 @@ class Users extends CI_Controller
                         redirect('home');
                     }
                 } else {
+                    $this->session->set_tempdata('error', "<p class='text-center mb-0'>Account Not Verified...<br>Please Check your email.</p>", 1);
                     redirect('register');
                 }
             } else {
