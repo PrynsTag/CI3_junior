@@ -45,7 +45,7 @@ Sub - font-family: 'Roboto', sans-serif;
 }
 
 .logo_card_register {
-  height: 450px;
+  height: 550px;
   width: 350px;
   margin: auto 0;
   background: var(--black);
@@ -59,6 +59,7 @@ Sub - font-family: 'Roboto', sans-serif;
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 15px;
+  padding: 0 20px;
 }
 
 .logo_card_editItem {
@@ -322,6 +323,7 @@ i {
   #verificationContainer {
     height: 90vh;
   }
+
 }
 
 @media (max-height: 479px) {
@@ -527,6 +529,45 @@ i {
   text-transform: uppercase;
 }
 
+/** addcollection_view.php css **/
+
+.addImageContainer {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+}
+
+.addImage {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border: 5px solid var(--black);
+  border-radius: 30%;
+}
+
+.addContainer {
+  margin: 0;
+  padding: 0;
+}
+
+.addFormContainer form {
+  width: 30%;
+  margin: 0 auto;
+}
+
+
+.Addback-button {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.Addback-button:hover,
+.Addback-button:focus {
+  color: var(--pink);
+}
+
 /* Responsive Fix */
 @media (min-width: 991.98px) {
   .navbar {
@@ -535,6 +576,7 @@ i {
     margin-left: auto;
     margin-right: auto;
   }
+
 }
 
 @media (max-width: 991.98px) {
@@ -550,6 +592,11 @@ i {
     padding-left: 0px;
     padding-bottom: 10px;
   }
+
+  .addFormContainer form {
+    width: 80%;
+  }
+
 }
 
 /* #cardContainer {
@@ -670,33 +717,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/** addcollection_view.php css **/
 
-.addImageContainer {
-  position: relative;
-  height: 170px;
-  width: 170px;
-  border-radius: 30%;
-  padding: 10px;
-  text-align: center;
-}
-
-.addContainer {
-  margin: 0;
-  padding: 0;
-}
-
-.Addback-button {
-  font-family: "Roboto", sans-serif;
-  width: 100%;
-  color: var(--black);
-  margin-bottom: 10px;
-}
-
-.Addback-button:hover,
-.Addback-button:focus {
-  color: var(--pink);
-}
 
 /** editprofile.php css **/
 
@@ -804,6 +825,7 @@ a {
   .pe {
     width: 100%;
   }
+
 }
 
 /** settings.php css **/
