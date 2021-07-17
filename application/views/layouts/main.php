@@ -19,6 +19,7 @@
   <!--Scripts-->
   <script src="https://kit.fontawesome.com/df94d8b582.js" crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,6 @@
   <?php $this->load->view($main_view); ?>
 
   <!-- Script -->
-  <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 
