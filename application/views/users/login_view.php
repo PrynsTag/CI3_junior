@@ -26,7 +26,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <div class="login_heading">
-                    <h1>Sign in</h1>
+                    <h1 class="text-center">Sign in</h1>
                     <?php
                     if ($this->session->tempdata("message")) {
                         echo '<div class="alert alert-success">' . $this->session->tempdata("message") . '</div>';
