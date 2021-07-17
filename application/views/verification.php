@@ -7,8 +7,8 @@
   <div class="d-flex justify-content-center h-100">
     <div class="logo_card">
       <div class="d-flex justify-content-center">
-        <div class="brand_logo_container">
-          <img src="../../assets/images/JARS-ICON-rev.png" class="brand_logo" alt="Logo">
+        <div class="brand_logo_container_login">
+          <img src="../../assets/images/BJ-ICON.png" class="brand_logo" alt="Logo">
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -42,7 +42,7 @@
         </div>
         <div class="mt-4">
           <div class="d-flex justify-content-end links">
-            <a href="../../old_index.php" class="signup">Logout</a>
+            <a href="<?= base_url() ?>home/logout" class="signup">Logout</a>
           </div>
         </div>
         </form>

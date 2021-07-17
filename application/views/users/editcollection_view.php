@@ -26,7 +26,7 @@
 
 <div id="registerContainer">
     <div class="d-flex justify-content-center h-100">
-        <div class="logo_card">
+        <div class="logo_card_editItem">
             <!--Logo-->
             <div class="d-flex justify-content-center">
                 <div class="brand_logo_container">

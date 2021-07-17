@@ -28,7 +28,7 @@
         <div class="logo_card">
             <!--Logo-->
             <div class="d-flex justify-content-center">
-                <div class="brand_logo_container">
+                <div class="brand_logo_container_login">
                     <img src="<?= $form_logo ?>" class="brand_logo" alt="Logo">
                 </div>
             </div>
@@ -60,7 +60,7 @@
             <!--Register Link-->
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
-                    <p class="regprompt">Don't have an account?&nbsp;<a class="signup" href="<?= base_url() ?>register">Sign up</a></p>&nbsp;
+                    <p class="regprompt">Don't have an account?&nbsp;<a class="signup" href="<?= base_url() ?>Register">Sign up</a></p>&nbsp;
                 </div>
             </div>
         </div>

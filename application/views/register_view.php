@@ -33,15 +33,15 @@
     </nav>
     <div id="registerContainer">
         <div class="d-flex justify-content-center h-100">
-            <div class="logo_card">
+            <div class="logo_card_register">
                 <!--Logo-->
                 <div class="d-flex justify-content-center">
-                    <div class="brand_logo_container">
-                        <img src="<?= base_url() ?>/assets/images/JARS-ICON-rev.png" class="brand_logo" alt="Logo">
+                    <div class="brand_logo_container_login">
+                        <img src="<?= base_url() ?>/assets/images/BJ-ICON.png" class="brand_logo" alt="Logo">
                     </div>
                 </div>
                 <!--Form-->
-                <div class="d-flex justify-content-center form_container_2">
+                <div class="d-flex justify-content-center form_container_1">
                     <form action="<?= base_url() ?>register/validation" method="POST">
                         <?php
                         if ($this->session->tempdata("message")) {
@@ -79,11 +79,9 @@
                         <div class="d-flex justify-content-center login_container">
                             <button type="submit" name="submitRegister" class="btn login_btn">Register</button>
                         </div>
-                        <div class="mt-4">
                             <div class="d-flex justify-content-end links">
-                                <a href="<?= base_url() ?>login" class="signup">Back</a>
+                                <a href="<?= base_url() ?>login" class="signup btn-align">Back</a>
                             </div>
-                        </div>
                     </form>
                 </div>
             </div>
