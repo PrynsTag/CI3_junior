@@ -1,3 +1,5 @@
+
+
 <?php if ($this->session->tempdata('error')) : ?>
     <div class="alert alert-danger">
         <p><?= $this->session->tempdata('error') ?></p>
@@ -26,15 +28,9 @@
 
 <div id="registerContainer">
     <div class="d-flex justify-content-center h-100">
-        <div class="logo_card_editProfile">
-            <!--Logo-->
-            <div class="d-flex justify-content-center">
-                <div class="brand_logo_container">
-                    <img src="<?= base_url("uploads/user_profile/") . $user_details->userinfo_image; ?>" class="brand_logo" alt="Logo" id="image_display">
-                </div>
-            </div>
-            <div class="d-flex justify-content-center form_container_3">
-                <?php echo form_open_multipart('home/editprofile', $form_attributes); ?>
+        <div class="logo_card">
+            <div class="d-flex justify-content-center form_container_2">
+                <?php echo form_open_multipart('users/validation/' . $user_id, array('method' => 'post')); ?>
                 <div class="input-group mb-3">
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="far fa-user"></i></span>
