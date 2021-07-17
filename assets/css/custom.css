@@ -24,13 +24,66 @@ Sub - font-family: 'Roboto', sans-serif;
 }
 
 .a:hover {
-  color: black;
+  color: var(--black);
 }
 
 .logo_card {
-  height: 520px;
+  height: 450px;
   width: 350px;
   margin: auto 0;
+  background: var(--black);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+}
+
+.logo_card_register {
+  height: 450px;
+  width: 350px;
+  margin: auto 0;
+  background: var(--black);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+}
+
+.logo_card_editItem {
+  height: 450px;
+  width: 420px;
+  margin: auto 0;
+  background: var(--black);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 60px;
+  padding-right: 60px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+}
+
+.logo_card_userinfo {
+  height: 450px;
+  margin-top: auto;
+  margin-bottom: auto;
   background: var(--black);
   position: relative;
   display: flex;
@@ -45,25 +98,39 @@ Sub - font-family: 'Roboto', sans-serif;
   border-radius: 5px;
 }
 
-.logo_card_userinfo {
-  height: 450px;
-  margin-top: auto;
-  margin-bottom: auto;
-  background: black;
+.logo_card_editProfile {
+  height: 500;
+  width: 480px;
+  margin: auto 0;
+  background: var(--black);
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 10px;
+  padding-top: 3%;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 2.5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .brand_logo_container {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -80px;
+  border-radius: 30%;
+  background-color: var(--pink);
+  padding: 10px;
+  text-align: center;
+}
+
+.brand_logo_container_login {
   position: absolute;
   height: 170px;
   width: 170px;
@@ -78,6 +145,7 @@ Sub - font-family: 'Roboto', sans-serif;
   height: 150px;
   width: 150px;
   object-fit: cover;
+  border-radius: 30%;
 }
 
 .form_container {
@@ -86,7 +154,7 @@ Sub - font-family: 'Roboto', sans-serif;
 
 .login_heading,
 .ver_heading {
-  margin-top: 50px;
+  margin-top: 100px;
   color: white;
 }
 
@@ -108,13 +176,13 @@ Sub - font-family: 'Roboto', sans-serif;
 
 #email-add-disp {
   text-align: center;
-  color: #ffd464;
+  color: var(--pink);
   font-weight: bold;
 }
 
 .input-group-text {
   background: white;
-  color: black;
+  color: var(--black);
   border: 0;
   border-radius: 0.25rem 0 0 0.25rem;
   padding: 0.75rem 0.75rem;
@@ -125,7 +193,7 @@ Sub - font-family: 'Roboto', sans-serif;
 .input_ver:focus {
   box-shadow: none;
   outline: 0px;
-  border-color: #ffd464;
+  border-color: var(--pink);
 }
 
 i {
@@ -140,13 +208,13 @@ i {
 .login_btn {
   width: 100%;
   background: white;
-  color: black;
+  color: var(--black);
   margin-bottom: 10px;
 }
 
 .login_btn:hover {
-  background-color: #ffd464;
-  color: black;
+  background-color: var(--pink);
+  color: white;
   transition: 0.5s;
 }
 
@@ -155,13 +223,28 @@ i {
   box-shadow: none;
 }
 
+.addSubmit_btn {
+  width: 100%;
+  background: var(--black);
+  color: white;
+  margin-bottom: 10px;
+}
+
+.addSubmit_btn:hover {
+  width: 100%;
+  background: var(--pink);
+  color: white;
+  margin-bottom: 10px;
+}
+
 .signup {
+  margin-top: 0%;
   text-decoration: none;
-  color: #ffd464;
+  color: white;
 }
 
 .signup:hover {
-  color: white;
+  color: var(--pink);
 }
 
 .regprompt {
@@ -171,14 +254,22 @@ i {
 .input_text:focus {
   box-shadow: none;
   outline: 0px;
-  border-color: #ffd464;
+  border-color: var(--pink);
 }
 
 .input_textarea {
   resize: none;
 }
 
+.form_container_1 {
+  margin-top: 120px;
+}
+
 .form_container_2 {
+  margin-top: 90px;
+}
+
+.form_container_3 {
   margin-top: 90px;
 }
 
@@ -188,7 +279,7 @@ i {
 }
 
 .logo-change .container-fluid {
-  background-color: #ffd464;
+  background-color: var(--pink);
 }
 
 .logo-change .container-fluid p {
@@ -267,6 +358,7 @@ i {
 }
 
 .navbar-text {
+  color: var(--black);
   font-family: "Abril Fatface", cursive;
   font-size: 50px;
   padding: 0;
@@ -300,7 +392,7 @@ i {
 
 .navbar-main {
   width: 100%;
-  background-color: black;
+  background-color: var(--black);
   font-family: "Open Sans", sans-serif;
   font-weight: 550;
 }
@@ -318,8 +410,8 @@ i {
 .nav-link:hover,
 .navbar-brand:hover,
 #logo:hover {
-  background-color: white;
-  color: black;
+  background-color: var(--pink);
+  color: white;
 }
 
 .fa-bars {
@@ -336,19 +428,24 @@ i {
 }
 
 .active {
-  background-color: #ffd464;
+  background-color: var(--pink);
 }
 
 .active-button {
-  color: black;
+  color: white;
   display: block;
   padding: 0.5rem 0.5rem;
   margin: 0;
+  text-decoration: none;
+}
+
+.active-button:hover {
+  color: white;
 }
 
 /* Footer */
 #footer {
-  background-color: black;
+  background-color: var(--black);
   color: white;
   margin-top: 5vw;
   padding: 4rem;
@@ -394,7 +491,7 @@ i {
   font-family: "Anton", sans-serif;
   text-transform: uppercase;
   background-color: white;
-  color: black;
+  color: var(--black);
   width: 100%;
   text-align: center;
 }
@@ -414,7 +511,7 @@ i {
 }
 
 .menu-ft ul li a:hover {
-  color: #ffd464;
+  color: var(--pink);
 }
 
 .hr-ft {
@@ -460,12 +557,14 @@ i {
 } */
 
 .headingContainer h1 {
+  color: var(--blue);
   font-family: "Anton", sans-serif;
   text-transform: uppercase;
 }
 
 #cardContainer .headingContainer {
   text-align: center;
+  margin-top: 50px;
 }
 
 #cardContainer .bodyContainer {
@@ -507,7 +606,7 @@ i {
 }
 
 .additemnavbar {
-  background-color: black;
+  background-color: var(--black);
 }
 
 .col-remove-margin {
@@ -529,22 +628,25 @@ a {
   right: 0;
   bottom: 0;
   padding: 3%;
+  margin-bottom: 8px;
 }
 
 .button-1 a,
 .button-2 a {
+  font-size: small;
+  font-weight: normal;
   color: white;
-  background-color: black;
-  padding: 5px;
+  background-color: var(--black);
+  padding: 10px;
 }
 
 .button-1 a:hover,
 .button-1 a:focus,
 .button-2 a:hover,
 .button-2 a:focus {
-  color: black;
-  background-color: #ffd464;
-  padding: 5px;
+  color: white;
+  background-color: var(--pink);
+  padding: 10px;
 }
 
 .button-2 {
@@ -554,6 +656,7 @@ a {
   left: 0;
   bottom: 0;
   padding: 3%;
+  margin-bottom: 8px;
 }
 
 .card-title,
@@ -567,13 +670,41 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+/** addcollection_view.php css **/
+
+.addImageContainer {
+  position: relative;
+  height: 170px;
+  width: 170px;
+  border-radius: 30%;
+  padding: 10px;
+  text-align: center;
+}
+
+.addContainer {
+  margin: 0;
+  padding: 0;
+}
+
+.Addback-button {
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.Addback-button:hover,
+.Addback-button:focus {
+  color: var(--pink);
+}
 
 /** editprofile.php css **/
 
 .back-button {
   font-family: "Roboto", sans-serif;
-  padding: initial;
+  width: 100%;
   color: white;
+  margin-bottom: 10px;
 }
 
 .btn-align {
@@ -583,7 +714,7 @@ a {
 
 .back-button:hover,
 .back-button:focus {
-  color: #ffd464;
+  color: var(--pink);
 }
 
 /** about.php css **/
@@ -601,7 +732,7 @@ a {
   max-width: 1600px;
   margin: auto;
   padding: 40px;
-  color: black;
+  color: var(--black);
   overflow: hidden;
 }
 
@@ -609,7 +740,7 @@ a {
   font-size: 40px;
   text-transform: uppercase;
   display: inline-block;
-  border-bottom: 4px solid #ffd464;
+  border-bottom: 4px solid var(--pink);
   padding-bottom: 10px;
 }
 
@@ -622,7 +753,8 @@ a {
 }
 
 .pe:hover {
-  background: #ffd464;
+  background: var(--pink);
+  color: var(--black);
 }
 
 .pe img {
@@ -640,7 +772,6 @@ a {
 .p-des {
   font-family: "Roboto", sans-serif;
   font-style: italic;
-  color: black;
 }
 
 .p-sm {
@@ -657,10 +788,11 @@ a {
 
 .p-sm a:hover {
   transform: scale(1.3);
+  color: white;
 }
 
 .p-sm a i {
-  color: black;
+  color: var(--black);
   line-height: 30px;
 }
 
@@ -679,7 +811,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 65vh;
   background: white;
 }
 
@@ -737,7 +869,7 @@ a {
   display: inline-block;
   width: 35px;
   height: 35px;
-  background: black;
+  background: var(--black);
   color: white;
   display: flex;
   justify-content: center;
@@ -751,7 +883,7 @@ a {
 
 .settingsCard .settingsDetails .settingsContent .settingButtons a {
   font-family: "Roboto", sans-serif;
-  background: black;
+  background: var(--black);
   color: white;
   height: 30%;
   width: 120px;
@@ -764,8 +896,8 @@ a {
 }
 
 .settingsCard .settingsDetails .settingsContent .settingButtons a:hover {
-  background: #ffd464;
-  color: black;
+  background: var(--pink);
+  color: white;
 }
 
 .settingsCard .settingsImage {
@@ -804,7 +936,7 @@ a {
 .h3,
 h3 {
   color: white;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -820,7 +952,7 @@ h3 {
 
 .noitems #head {
   font-family: "Anton", sans-serif;
-  color: #ffd464;
+  color: var(--pink);
   font-size: 5vw;
   text-transform: uppercase;
 }
