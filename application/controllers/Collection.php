@@ -15,7 +15,7 @@ class Collection extends CI_Controller
         $get_posts = $this->collection_model->get_collection($user_id);
 
         $data = [
-            'header_title' => 'My Collection - Beta Juniors',
+            'header_title' => 'My Collection - Beta Jr.',
             'main_view' => 'users/collection_view',
             'posts' => $get_posts
         ];
@@ -27,7 +27,7 @@ class Collection extends CI_Controller
     {
         $page = "users/" . $this->uri->segment(2);
         $data = [
-            "header_title" => "Add Item - juniors (A JARS Project)",
+            "header_title" => "Add Item - Beta Jr.",
             "main_view" => $page
         ];
 
@@ -54,7 +54,7 @@ class Collection extends CI_Controller
         }
 
         $data = [
-            'header_title' => 'Add Item - juniors (A JARS Project)',
+            'header_title' => 'Add Item - Beta Jr.',
             'main_view' => $page,
             'error' => $result
         ];
@@ -93,7 +93,7 @@ class Collection extends CI_Controller
 							text: '";
             }
             $data = [
-                'header_title' => 'Add Item - juniors (A JARS Project)',
+                'header_title' => 'Add Item - Beta Jr.',
                 'main_view' => 'users/add_collection',
                 'alert' => $result_alert
             ];

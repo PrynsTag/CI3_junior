@@ -7,7 +7,7 @@ class Home extends CI_Controller
         $get_posts = $this->post_model->featured_shoes();
 
         $data = [
-            'header_title' => 'Home - Beta Juniors',
+            'header_title' => 'Home - Beta Jr.',
             'main_view' => 'users/home_view',
             'posts' => $get_posts
         ];
@@ -22,7 +22,7 @@ class Home extends CI_Controller
         $get_posts = $this->collection_model->get_collection($user_id);
 
         $data = [
-            'header_title' => 'My Collection - Beta Juniors',
+            'header_title' => 'My Collection - Beta Jr.',
             'main_view' => 'users/collection_view',
             'posts' => $get_posts
         ];
@@ -34,7 +34,7 @@ class Home extends CI_Controller
     {
 
         $data = [
-            'header_title' => 'My Collection - Beta Juniors',
+            'header_title' => 'My Collection - Beta Jr.',
             'main_view' => 'users/addcollection_view',
             'input_title' => array('class' => 'form-control input_text', 'type' => 'text', 'name' => 'title', 'placeholder' => 'Title'),
             'input_description' => array('class' => 'form-control input_text input_textarea', 'type' => 'text', 'name' => 'description', 'placeholder' => 'Description', 'rows' => '3'),
@@ -113,7 +113,7 @@ class Home extends CI_Controller
 
         $db_data = $this->post_model->getPost($query_data)[0];
         $data = [
-            'header_title' => 'Edit Post - Beta Juniors',
+            'header_title' => 'Edit Post - Beta Jr.',
             'main_view' => 'users/editcollection_view',
             'input_title' => array('class' => 'form-control input_text', 'name' => 'title', 'type' => 'text', 'placeholder' => 'Title', 'value' => $db_data->post_title),
             'input_description' => array('class' => 'form-control input_text input_textarea', 'name' => 'description', 'placeholder' => 'Description', 'value' => $db_data->post_description, 'rows' => '3'),
@@ -209,7 +209,7 @@ class Home extends CI_Controller
         $user_info = $this->user_model->join_userinfo($query_data)[0];
 
         $data = [
-            'header_title' => 'Settings - Beta Juniors',
+            'header_title' => 'Settings - Beta Jr.',
             'main_view' => 'users/settings_view',
             'user_details' => $user_info
         ];
@@ -220,7 +220,7 @@ class Home extends CI_Controller
     public function about()
     {
         $data = [
-            'header_title' => 'About - Beta Juniors',
+            'header_title' => 'About - Beta Jr.',
             'main_view' => 'users/about_view'
         ];
 
@@ -245,13 +245,13 @@ class Home extends CI_Controller
         $db_userdata = $this->user_model->join_userinfo($query_data)[0];
 
         $data = [
-            'header_title' => 'Edit Profile - Beta Juniors',
+            'header_title' => 'Edit Profile - Beta Jr.',
             'main_view' => 'users/editprofile_view',
             'user_details' => $db_userdata,
             'form_attributes' => array('method' => 'post'),
             'input_firstname' => array('class' => 'form-control input_text', 'name' => 'firstname', 'type' => 'text', 'placeholder' => 'First Name', 'value' => $db_userdata->userinfo_firstname),
             'input_lastname' => array('class' => 'form-control input_text', 'name' => 'lastname', 'type' => 'text', 'placeholder' => 'Last Name', 'value' => $db_userdata->userinfo_lastname),
-            'input_bio' => array('class' => 'form-control input_text input_textarea', 'name' => 'bio', 'placeholder' => 'Bio', 'value' => $db_userdata->userinfo_bio),
+            'input_bio' => array('class' => 'form-control input_text input_textarea', 'name' => 'bio', 'placeholder' => 'Bio', 'value' => $db_userdata->userinfo_bio, 'rows' => '5'),
             'input_upload' => array('class' => 'form-control input_text', 'id' => 'imgInp', 'type' => 'file', 'name' => 'image'), array('value' => base_url() . $db_userdata->userinfo_image)
         ];
 
@@ -327,12 +327,12 @@ class Home extends CI_Controller
         $user_info = $this->user_model->join_userinfo($user['user_id'])[0];
 
         $data = [
-            'header_title' => 'Change Password - Beta Juniors',
+            'header_title' => 'Change Password - Beta Jr.',
             'main_view' => 'users/changepassword_view',
             'form_attributes' => array('method' => 'post', 'enctype' => 'multipart/form-data'),
-            'input_currentPassword' => array('class' => 'form-contorl input_text', 'name' => 'currentPassword', 'type' => 'password', 'placeholder' => 'Current Password'),
-            'input_newPassword' => array('class' => 'form-contorl input_text', 'name' => 'newPassword', 'type' => 'password', 'placeholder' => 'New Password'),
-            'input_confirmPassword' => array('class' => 'form-contorl input_text', 'name' => 'confirmPassword', 'type' => 'password', 'placeholder' => 'Re-enter Password'),
+            'input_currentPassword' => array('class' => 'form-control input_text', 'name' => 'currentPassword', 'type' => 'password', 'placeholder' => 'Current Password'),
+            'input_newPassword' => array('class' => 'form-control input_text', 'name' => 'newPassword', 'type' => 'password', 'placeholder' => 'New Password'),
+            'input_confirmPassword' => array('class' => 'form-control input_text', 'name' => 'confirmPassword', 'type' => 'password', 'placeholder' => 'Re-enter Password'),
             'user_info' => $user_info
         ];
 
