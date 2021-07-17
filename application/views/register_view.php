@@ -46,6 +46,8 @@
                         <?php
                         if ($this->session->tempdata("message")) {
                             echo '<div class="alert alert-success">' . $this->session->tempdata("message") . '</div>';
+                        } else {
+                            echo '<div class="alert alert-danger">' . $this->session->tempdata("error") . '</div>';
                         }
                         ?>
                         <div class="input-group mb-3">
