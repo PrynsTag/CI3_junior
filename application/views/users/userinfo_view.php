@@ -1,5 +1,3 @@
-
-
 <?php if ($this->session->tempdata('error')) : ?>
     <div class="alert alert-danger">
         <p><?= $this->session->tempdata('error') ?></p>
@@ -28,7 +26,12 @@
 
 <div id="registerContainer">
     <div class="d-flex justify-content-center h-100">
-        <div class="logo_card">
+        <div class="logo_card_editProfile">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <img src="<?= base_url("assets/images/user.png"); ?>" class="brand_logo" alt="Logo" id="image_display">
+                </div>
+            </div>
             <div class="d-flex justify-content-center form_container_2">
                 <?php echo form_open_multipart('users/validation/' . $user_id, array('method' => 'post')); ?>
                 <div class="input-group mb-3">
@@ -54,6 +57,22 @@
                         <span class="input-group-text"><i class="fas fa-portrait"></i></span>
                     </div>
                     <?= form_upload($input_upload); ?>
+                    <script>
+                        function readURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function(e) {
+                                    $('#image_display').attr('src', e.target.result);
+                                }
+                                reader.readAsDataURL(input.files[0]); // convert to base64 string
+                            }
+                        }
+
+                        $("#imgInp").change(function() {
+                            readURL(this);
+                        });
+                    </script>
                 </div>
                 <div class="d-flex justify-content-center login_container">
                     <div class="btn-align">
