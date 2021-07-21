@@ -43,13 +43,21 @@
                 <!--Form-->
                 <div class="d-flex justify-content-center form_container_1">
                     <form action="<?= base_url() ?>register/validation" method="POST">
-                        <?php
-                        if ($this->session->tempdata("message")) {
-                            echo '<div class="alert alert-success">' . $this->session->tempdata("message") . '</div>';
-                        } else {
-                            echo '<div class="alert alert-danger">' . $this->session->tempdata("error") . '</div>';
-                        }
-                        ?>
+
+                        <!-- Alert Message -->
+                        <?php if ($this->session->tempdata('message')) : ?>
+                            <div class="alert alert-success">
+                                <p><?= $this->session->tempdata('message') ?></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Alert Error -->
+                        <?php if ($this->session->tempdata('error')) : ?>
+                            <div class="alert alert-success">
+                                <p><?= $this->session->tempdata('error') ?></p>
+                            </div>
+                        <?php endif; ?>
+
                         <div class="input-group mb-3">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fas fa-at"></i></span>
@@ -81,9 +89,9 @@
                         <div class="d-flex justify-content-center login_container">
                             <button type="submit" name="submitRegister" class="btn login_btn">Register</button>
                         </div>
-                            <div class="d-flex justify-content-end links">
-                                <a href="<?= base_url() ?>login" class="signup btn-align">Back</a>
-                            </div>
+                        <div class="d-flex justify-content-end links">
+                            <a href="<?= base_url() ?>login" class="signup btn-align">Back</a>
+                        </div>
                     </form>
                 </div>
             </div>

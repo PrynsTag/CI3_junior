@@ -6,6 +6,10 @@ class Register extends CI_Controller
 {
     public function index($page = "register_view", $data = array("title" => "tropangpochi"))
     {
+        if ($this->session->userdata('user_info') != NULL) {
+            redirect('home');
+        }
+
         $this->load->view($page, $data);
     }
 
@@ -21,7 +25,7 @@ class Register extends CI_Controller
 
         if ($this->form_validation->run()) {
             $verification_key = mt_rand(100000, 999999);
-//            $encrypted_password = $this->encrypt->encode($this->input->post("password")); if password needs to encrypted
+            //            $encrypted_password = $this->encrypt->encode($this->input->post("password")); if password needs to encrypted
             $data = array(
                 "user_username" => $this->input->post("username"),
                 "user_password" => $this->input->post("password"),
@@ -95,7 +99,8 @@ class Register extends CI_Controller
             redirect('login');
         }
 
-        $this->index("layouts/main",
+        $this->index(
+            "layouts/main",
             array(
                 "code" => $db_code,
                 "emailadd" => $result->user_email,

@@ -6,6 +6,10 @@ class Login extends CI_Controller
 
 	public function index()
 	{
+		if ($this->session->userdata('user_info') != NULL) {
+			redirect('home');
+		}
+
 		$data = [
 			'header_title' => 'Login - Beta Juniors',
 			'main_view' => 'users/login_view',
