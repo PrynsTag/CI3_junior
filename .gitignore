@@ -86,3 +86,7 @@ fabric.properties
 /.config
 /.idea
 
+# Composer Files
+/vendor/
+composer.phar
+composer.lock
