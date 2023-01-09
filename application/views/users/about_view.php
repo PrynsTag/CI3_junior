@@ -8,8 +8,9 @@
                     <div class="p-name">Prince Carl Velasco</div>
                     <div class="p-des">Leader</div>
                     <div class="p-sm">
-                        <a href="https://www.facebook.com/princecarl.velasco" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter" target="_blank"></i></a>
+                        <a href="https://www.facebook.com/prynstag/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/prynstag/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/prynstag/" target="_blank"><i class="fab fa-github"></i></a>
                         <a href="https://www.instagram.com/prynstag/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>

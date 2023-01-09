@@ -20,7 +20,7 @@
             <div class="container-ft menu-ft">
                 <h1>Follow us</h1>
                 <ul>
-                    <li><a href="https://www.facebook.com/princecarl.velasco">Facebook</a></li>
+                    <li><a href="https://www.facebook.com/prynstag">Facebook</a></li>
                     <li><a href="https://www.instagram.com/rckyrmnx">Instagram</a></li>
                     <li><a href="https://www.twitter.com/itsjuliebird">Twitter</a></li>
                     <li><a href="https://github.com/CWGGa">Github</a></li>
