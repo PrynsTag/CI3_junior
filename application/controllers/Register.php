@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-include ".config";
 
 class Register extends CI_Controller
 {
